@@ -11,4 +11,6 @@ public interface TaskRepository extends JpaRepository<Task, Long>{
     
     @Query("SELECT t FROM Task t JOIN t.user_id u WHERE u = :id")
     public List<Task> findByUserID (Long id);
+
+    // public List<Task>
 }

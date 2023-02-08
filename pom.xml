@@ -15,8 +15,22 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+		<kotlin.version>1.7.22</kotlin.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+      		<groupId>com.fasterxml.jackson.module</groupId>
+      		<artifactId>jackson-module-kotlin</artifactId>
+    	</dependency>
+    	<dependency>
+      		<groupId>org.jetbrains.kotlin</groupId>
+      		<artifactId>kotlin-reflect</artifactId>
+    	</dependency>
+    	<dependency>
+      		<groupId>org.jetbrains.kotlin</groupId>
+      		<artifactId>kotlin-stdlib-jdk8</artifactId>
+    	</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -56,6 +70,9 @@
 	</dependencies>
 
 	<build>
+
+		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+    	<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -69,7 +86,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-	  </plugins>
+    </plugins>
 	</build>
 
 </project>

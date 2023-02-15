@@ -25,6 +25,6 @@ public interface TaskService {
 
     public Task updatePriority (Long id, TaskPriority priority) throws TaskNotFoundException;
 
-    public Task deleteTask (Long id) throws TaskNotFoundException;
+    public void deleteTask (Long id) throws TaskNotFoundException;
 
 }

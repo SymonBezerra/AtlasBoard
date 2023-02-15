@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import ifpb.edu.br.atlasboard.domain.Task;
 import ifpb.edu.br.atlasboard.domain.TaskPriority;
+import ifpb.edu.br.atlasboard.domain.User;
 import ifpb.edu.br.atlasboard.exceptions.ExistingTaskException;
 import ifpb.edu.br.atlasboard.exceptions.TaskNotFoundException;
 import ifpb.edu.br.atlasboard.exceptions.UserNotFoundException;
@@ -24,6 +25,8 @@ public interface TaskService {
     public Task updateTask (Long id, Task task) throws ExistingTaskException, TaskNotFoundException;
 
     public Task updatePriority (Long id, TaskPriority priority) throws TaskNotFoundException;
+
+    public Task updateUser (Long id, User user) throws UserNotFoundException, TaskNotFoundException;
 
     public void deleteTask (Long id) throws TaskNotFoundException;
 

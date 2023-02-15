@@ -81,12 +81,25 @@ public class TaskServiceImpl implements TaskService{
     // PATCH
     @Override
     public Task updatePriority(Long id, TaskPriority priority) throws TaskNotFoundException {
-        Optional<Task> taskToUpdate = taskRepository.findById(id);
-        if (!taskToUpdate.isPresent()) {
+        Optional<Task> taskToPatch = taskRepository.findById(id);
+        if (!taskToPatch.isPresent()) {
             throw new TaskNotFoundException("Esta tarefa não está cadastrada!");
         } 
-        taskToUpdate.get().setPriority(priority);
-        return taskRepository.save(taskToUpdate.get());
+        taskToPatch.get().setPriority(priority);
+        return taskRepository.save(taskToPatch.get());
+    }
+
+    // PATCH
+    @Override
+    public Task updateUser(Long id, User user) throws UserNotFoundException, TaskNotFoundException{
+        if (!userRepository.findById(user.getId()).isPresent()) {
+            throw new UserNotFoundException("Este usuário não está cadastrado!");
+        } else if (!taskRepository.findById(id).isPresent()) {
+            throw new TaskNotFoundException("Esta tarefa não está cadastrada!"); 
+        } 
+        Task taskToPatch = taskRepository.findById(id).get();
+        taskToPatch.setUser(user);
+        return taskRepository.save(taskToPatch);
     }
 
     // DELETE
